@@ -74,7 +74,6 @@ const Home = ({userData}) => {
         const pageNumber = parseInt(page)
         fetchData(userToken, mediaListID, pageNumber)
     }
-    console.log(mediaList);
     return(
         <>
             <section className="selectList">
@@ -97,7 +96,6 @@ const Home = ({userData}) => {
                         let filtered = video.Images.filter((type) => {
                             return type.ImageTypeCode === "FRAME"
                         })
-                        console.log(filtered);
                         return <li key={video.Id}><Link to={`/player/${video.Id}`}>
                             <p>{video.Title}</p>
                             {filtered.length !== 0 && <img src={filtered[0].Url} alt="FRAME" width="320" height="320"/>}
