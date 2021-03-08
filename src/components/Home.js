@@ -99,7 +99,8 @@ const Home = ({userData}) => {
                         return <li key={video.Id}><Link to={`/player/${video.Id}`}>
                             <p>{video.Title}</p>
                             {filtered.length !== 0 && <img src={filtered[0].Url} alt="FRAME" width="320" height="320"/>}
-                        </Link></li>
+                        </Link><hr/></li>
+                        
                     })}    
                 </ul>}
             </section>
