@@ -1,10 +1,40 @@
+import { useState } from 'react'
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Splash from './components/Splash';
+import Home from './components/Home';
+import Player from './components/Player';
+import NotFound from './components/NotFound';
 
 function App() {
+  const [userData, setuserData] = useState({
+    "User": {},
+    "AuthToken": {}
+  })
+
+  const updateUser = (data) =>{
+    setuserData({
+      "User": data.User,
+      "AuthToken": data.AuthorizationToken
+    })
+  }
   return (
-    <div className="App">
-      
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Splash updateUser={updateUser}/>
+        </Route>
+        <Route path="/home">
+          <Home userData={userData}/>
+        </Route>
+        <Route path="/player/:id">
+          <Player userData={userData}/>
+        </Route>
+        <Route path="*">
+          <NotFound />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
