@@ -43,7 +43,7 @@ const Splash = ({ updateUser }) => {
     return(
         <>
             <header>
-                <h1>Welcome, please log in</h1>
+                <h1>Witaj, proszę zaloguj się</h1>
             </header>
             <main>
                 <form onSubmit={handleSubmit}>
@@ -52,10 +52,10 @@ const Splash = ({ updateUser }) => {
                         <input type="text" id="LoginInput" value={login} onChange={(e) => {setLogin(e.target.value)}} />
                     </div>
                     <div className="inputField">
-                        <label htmlFor="PasswordInput">Password</label>
+                        <label htmlFor="PasswordInput">Hasło</label>
                         <input type="text" id="PasswordInput" value={password} onChange={(e) => {setPassword(e.target.value)}} />
                     </div>
-                    {isPending ? <button disabled>Loading...</button> : <button type="submit">Sign in</button>}
+                    {isPending ? <button disabled>Wczytywanie...</button> : <button type="submit">Zaloguj się</button>}
                 </form>
                 {errorMessage.length > 0 && <div className="errorMessage">{errorMessage}</div>}
             </main>
