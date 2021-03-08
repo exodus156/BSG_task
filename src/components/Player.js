@@ -6,11 +6,14 @@ const Player = ({userData}) => {
     
 
     const fetchVideo = async (token) => {
-        const response = await fetch('https://thebetter.bsgroup.eu/Media/GetMediaPlayInfo?mediaId=15', {
-            method: "GET",
+        const response = await fetch('https://thebetter.bsgroup.eu/Media/GetMediaPlayInfo', {
+            method: "POST",
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + token
+            },
+            body: {
+                "MediaId": numberID
             }
         })
         console.log(response);
