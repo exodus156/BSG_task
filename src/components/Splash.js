@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom"
+import "./extraStyles/Splash.css"
 
 const Splash = ({ updateUser }) => {
     const [login, setLogin] = useState("");
@@ -42,22 +43,32 @@ const Splash = ({ updateUser }) => {
 
     return(
         <>
-            <header>
-                <h1>Witaj, proszę zaloguj się</h1>
+            <header className="row">
+                <h3 className="col s10 offset-s1 center-align purple-text text-darken-3">Witaj, proszę zaloguj się</h3>
             </header>
-            <main>
-                <form onSubmit={handleSubmit}>
-                    <div className="inputField">
-                        <label htmlFor="LoginInput">Login</label>
-                        <input type="text" id="LoginInput" value={login} onChange={(e) => {setLogin(e.target.value)}} />
+            <main className="row">
+                <form className="col s10 offset-s1 center-align" onSubmit={handleSubmit}>
+                    <div className="row">
+                        <div className="input-field col s12">
+                            <i className="material-icons prefix purple-text text-darken-3">account_circle</i>
+                            <label htmlFor="LoginInput">Login</label>
+                            <input type="text" id="LoginInput" value={login} onChange={(e) => {setLogin(e.target.value)}} />
+                        </div>
                     </div>
-                    <div className="inputField">
-                        <label htmlFor="PasswordInput">Hasło</label>
-                        <input type="text" id="PasswordInput" value={password} onChange={(e) => {setPassword(e.target.value)}} />
+                    <div className="row">
+                        <div className="input-field col s12">
+                            <i className="material-icons prefix purple-text text-darken-3">lock</i>
+                            <label htmlFor="PasswordInput">Hasło</label>
+                            <input type="password" id="PasswordInput" value={password} onChange={(e) => {setPassword(e.target.value)}} />
+                        </div>
                     </div>
-                    {isPending ? <button disabled>Wczytywanie...</button> : <button type="submit">Zaloguj się</button>}
+                    {isPending ? <div className="row"><button className="btn waves-effect waves-light purple lighten-2 ld-ext-right running">Wczytywanie <div className="ld ld-ring ld-spin"></div></button></div> 
+                    : <div className="row"><button type="submit" className="btn waves-effect waves-light purple darken-3">Zaloguj się <i className="material-icons right">send</i></button></div>}
+                    {errorMessage.length > 0 && 
+                    <div className="row">
+                        <h6 className="col s10 offset-s1 center-align red-text text-darken-1 text-accent-3" style={{fontWeight: "bold"}}>{errorMessage}</h6>
+                    </div>}
                 </form>
-                {errorMessage.length > 0 && <div className="errorMessage">{errorMessage}</div>}
             </main>
         </>
     )
