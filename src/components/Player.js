@@ -8,7 +8,7 @@ const Player = ({userData}) => {
     const numberID = parseInt(id);
     
     if(userData.AuthToken.Token === undefined){
-        history.push('/');
+        history.push('/BSG_task/');
     }
 
     const fetchVideo = async (token) => {
@@ -41,7 +41,7 @@ const Player = ({userData}) => {
                 <ReactPlayer width='100%' height='100%' url="https://www.youtube.com/watch?v=vaOAOaOBEOU" controls={true}/>            
             </section>
             <section className="row center-align">
-                <Link to="/home"><button className="btn waves-effect waves-light purple darken-3">Wstecz</button></Link>
+                <Link to="/BSG_task/home"><button className="btn waves-effect waves-light purple darken-3">Wstecz</button></Link>
             </section>
         </>
     )

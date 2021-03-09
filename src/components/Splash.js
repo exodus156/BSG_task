@@ -36,7 +36,7 @@ const Splash = ({ updateUser }) => {
             const data = await response.json();
             updateUser(data);
             setIsPending(false)
-            history.push('/home')
+            history.push('/BSG_task/home')
 
         }
         else{
