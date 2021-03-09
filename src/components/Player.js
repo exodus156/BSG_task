@@ -38,7 +38,7 @@ const Player = ({userData}) => {
                 </h5>
             </section>
             <section className="video-container" style={{marginBottom: 30, marginLeft: 40, marginRight: 40}}>
-                <ReactPlayer width='100%' height='100%' url="https://www.youtube.com/watch?v=vaOAOaOBEOU" controls="true"/>            
+                <ReactPlayer width='100%' height='100%' url="https://www.youtube.com/watch?v=vaOAOaOBEOU" controls={true}/>            
             </section>
             <section className="row center-align">
                 <Link to="/home"><button className="btn waves-effect waves-light purple darken-3">Wstecz</button></Link>

@@ -83,14 +83,27 @@ const Home = ({userData}) => {
                 </div>
                 <div className="row">
                     <div className="input-field col s10 offset-s1 l8 offset-l2">
-                        <select onChange={(e) => {handleListSelect(e.target.value)}}>
-                            <option value="" disabled selected>Wybierz listę...</option>
+                        <select onChange={(e) => {handleListSelect(e.target.value)}} defaultValue={'DEFAULT'}>
+                            <option value="DEFAULT" disabled>Wybierz listę...</option>
                             <option value="1">Lista 1</option>
                             <option value="2">Lista 2</option>
                             <option value="3">Lista 3</option>
                             <option value="4">Lista 4</option>
                             <option value="5">Lista 5</option>
                             <option value="6">Lista 6</option>
+                            <option value="7">Lista 7</option>
+                            <option value="8">Lista 8</option>
+                            <option value="9">Lista 9</option>
+                            <option value="10">Lista 10</option>
+                            <option value="11">Lista 11</option>
+                            <option value="12">Lista 12</option>
+                            <option value="13">Lista 13</option>
+                            <option value="14">Lista 14</option>
+                            <option value="15">Lista 15</option>
+                            <option value="16">Lista 16</option>
+                            <option value="17">Lista 17</option>
+                            <option value="18">Lista 18</option>
+                            <option value="80">Lista 80</option>
                         </select>
                     </div>                    
                 </div>
@@ -128,10 +141,10 @@ const Home = ({userData}) => {
                                 <div className="card-action center-align">
                                     <Link to={`/player/${video.Id}`}><button className="btn waves-effect waves-light purple darken-1">Przejdź do filmu <i className="material-icons right">movie</i></button></Link>
                                 </div>
-                                <div className="card-reveal">
+                                {video.Description !== undefined && <div className="card-reveal">
                                     <span className="card-title activator purple-text text-darken-3" style={{fontWeight: 420}}>{video.Title}<i className="material-icons purple-text text-darken-3 right">close</i></span>
                                     <p>{video.Description}</p>
-                                </div>
+                                </div>}
                             </div>
                         </li>
                         
@@ -148,6 +161,9 @@ const Home = ({userData}) => {
                     })}
                 </ul>    
             </section>}
+            <section className="row center-align">
+                <Link to="/"><button className="btn waves-effect waves-light purple darken-3">Wstecz</button></Link>
+            </section>
         </>
     )
 }
