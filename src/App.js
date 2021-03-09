@@ -1,24 +1,41 @@
-import logo from './logo.svg';
+import { useState } from 'react'
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Splash from './components/Splash';
+import Home from './components/Home';
+import Player from './components/Player';
+import NotFound from './components/NotFound';
+import 'materialize-css/dist/css/materialize.min.css';
 
 function App() {
+  const [userData, setuserData] = useState({
+    "User": {},
+    "AuthToken": {}
+  })
+
+  const updateUser = (data) =>{
+    setuserData({
+      "User": data.User,
+      "AuthToken": data.AuthorizationToken
+    })
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Splash updateUser={updateUser}/>
+        </Route>
+        <Route exact path="/home">
+          <Home userData={userData}/>
+        </Route>
+        <Route path="/player/:id">
+          <Player userData={userData}/>
+        </Route>
+        <Route path="*">
+          <NotFound />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

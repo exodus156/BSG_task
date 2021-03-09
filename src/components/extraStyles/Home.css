@@ -1,0 +1,15 @@
+.select-dropdown{
+    color: #6a1b9a !important; 
+}
+
+ul.dropdown-content.select-dropdown li span {
+    color: #6a1b9a !important; 
+}
+
+.spinner-layer {
+    border-color: #6a1b9a !important;
+}
+
+.circle {
+    border-width: 5px !important;
+}

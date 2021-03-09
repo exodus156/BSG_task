@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+Better Software Group - zadanie rekrutacyjne
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Zastosowane technologie, narzędzia i biblioteki:
+ - React
+ - React Hooks
+ - React Router
+ - React Player (https://github.com/CookPete/react-player)
+ - Materialize.css (https://materializecss.com/)
+ - Loading.io (https://loading.io/)
 
-## Available Scripts
+Sama aplikacja składa się z 4 osobnych komponentów oraz 4 różnych wyświetlanych stron w zależności od ścieżki:
+ - "/" - Strona logowania oraz splash screen
+ - "/home" - Strona główna z listami dostępnych filmów
+ - "/player/:id" - Strona z dynamicznym ID, która wyświetla informacje o filmie + player (z powodu błędu 403 na endpointcie nie wyświetla odpowiednich filmów, jedynie placeholder)
+ - Ostatnia to custom 404, gdy scieżka jest nieprawidłowa, działa dla każdej błędnej ścieżki oprócz "/player/:id", gdyż z braku dostępu do endpointu, nie mogłem przeprowadzić walidacji, czy przesłane ID do filmu jest poprawne.
 
-In the project directory, you can run:
+Jeżeli chodzi o walidację, oprócz dodatkowego komponentu dla stron 404, wbudowałem małe zabezpieczenie w przypadku próby przejścia do podstron, bez wcześniejszego zalogowania się. Gdy token autoryzacyjny nie został zapisany, strona automatycznie przerzuca użytkownika do strony logowania. Tak samo w przypadku wygaśnięcia tokenu, gdy użytkownik spróbuje wysłać zapytanie do wyświetlenia listy. Dodatkowa walidacja powinna zostac dodana do formy logowania, aby nie przesyłać pustych danych, aczkolwiek testowe dane do logowania są pustym String, stąd musiałem z tego zrezygnować.
 
-### `npm start`
+Do wyświetlenia listy z filmami zastosowałem karty z Materialize. Po kliknięciu na zdjęcie/tytuł/ikonę, rozsunie się ukryty element z opisem filmu (jeżeli opis filmu nie istnieje, nic się nie stanie), a po kliknieciu przycisku aby przejść do filmu, przeniesie użytkownika do strony z playerem.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+W kwestii listy z filmami, maksymalna ilość filmów wyświetlonych za jednym razem to 10. Gdy liczba ta zostanie przekroczona, na dole strony pojawi się opcja przejścia do kolejnych stron w obrębie tej samej listy.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Kwestię responsywności na różnych wielkościach ekranu oraz na urządzeniach mobilnych, testowałem za pomocą Chrome i wbudowaną w nią możliwość przełączenia widoku na różne urządzenia mobilne.
 
-### `npm test`
+W folderze extraStyles, znajdują się dodatkowe style, które nadpisują bazowe ustawienia w Materialize.css.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To raczej wszystko, jeżeli chodzi o dokumentację aplikacji. Udanego sprawdzania i miłego dnia :)
