@@ -1,6 +1,7 @@
 {
   "name": "bsg_task",
   "version": "0.1.0",
+  "homepage": "http://exodus156.github.io/BSG_task",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
@@ -14,6 +15,8 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -38,6 +41,8 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^3.1.0",
     "materialize-css": "^1.0.0-rc.2"
   }
+  
 }
