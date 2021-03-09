@@ -22,13 +22,13 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/BSG_task/">
           <Splash updateUser={updateUser}/>
         </Route>
-        <Route exact path="/home">
+        <Route exact path="/BSG_task/home">
           <Home userData={userData}/>
         </Route>
-        <Route path="/player/:id">
+        <Route path="/BSG_task/player/:id">
           <Player userData={userData}/>
         </Route>
         <Route path="*">

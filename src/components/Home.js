@@ -53,12 +53,12 @@ const Home = ({userData}) => {
             }
         }
         else{
-            history.push('/')            
+            history.push('/BSG_task/')            
         }
     }
     
     if(userData.AuthToken.Token === undefined){
-        history.push('/');
+        history.push('/BSG_task/');
     } else{
         userToken = userData.AuthToken.Token
     }
@@ -139,7 +139,7 @@ const Home = ({userData}) => {
                                     <span className="card-title activator purple-text text-darken-3" style={{fontWeight: 420}}>{video.Title}<i className="material-icons purple-text text-darken-3 right">more_vert</i></span>
                                 </div>
                                 <div className="card-action center-align">
-                                    <Link to={`/player/${video.Id}`}><button className="btn waves-effect waves-light purple darken-1">Przejdź do filmu <i className="material-icons right">movie</i></button></Link>
+                                    <Link to={`/BSG_task/player/${video.Id}`}><button className="btn waves-effect waves-light purple darken-1">Przejdź do filmu <i className="material-icons right">movie</i></button></Link>
                                 </div>
                                 {video.Description !== undefined && <div className="card-reveal">
                                     <span className="card-title activator purple-text text-darken-3" style={{fontWeight: 420}}>{video.Title}<i className="material-icons purple-text text-darken-3 right">close</i></span>
@@ -162,7 +162,7 @@ const Home = ({userData}) => {
                 </ul>    
             </section>}
             <section className="row center-align">
-                <Link to="/"><button className="btn waves-effect waves-light purple darken-3">Wstecz</button></Link>
+                <Link to="/BSG_task/"><button className="btn waves-effect waves-light purple darken-3">Wstecz</button></Link>
             </section>
         </>
     )
