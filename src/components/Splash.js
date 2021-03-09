@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom"
 import "./extraStyles/Splash.css"
+import M from 'materialize-css';
 
 const Splash = ({ updateUser }) => {
     const [login, setLogin] = useState("");
@@ -8,6 +9,10 @@ const Splash = ({ updateUser }) => {
     const [errorMessage, setErrorMessage] = useState("")
     const [isPending, setIsPending] = useState(false)
     const history = useHistory()
+
+    useEffect(() => {
+        M.AutoInit()
+    }, [])
     
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -49,14 +54,14 @@ const Splash = ({ updateUser }) => {
             <main className="row">
                 <form className="col s10 offset-s1 center-align" onSubmit={handleSubmit}>
                     <div className="row">
-                        <div className="input-field col s12">
+                        <div className="input-field col s12 l8 offset-l2">
                             <i className="material-icons prefix purple-text text-darken-3">account_circle</i>
                             <label htmlFor="LoginInput">Login</label>
                             <input type="text" id="LoginInput" value={login} onChange={(e) => {setLogin(e.target.value)}} />
                         </div>
                     </div>
                     <div className="row">
-                        <div className="input-field col s12">
+                        <div className="input-field col s12 l8 offset-l2">
                             <i className="material-icons prefix purple-text text-darken-3">lock</i>
                             <label htmlFor="PasswordInput">Hasło</label>
                             <input type="password" id="PasswordInput" value={password} onChange={(e) => {setPassword(e.target.value)}} />

@@ -5,6 +5,7 @@ import Splash from './components/Splash';
 import Home from './components/Home';
 import Player from './components/Player';
 import NotFound from './components/NotFound';
+import 'materialize-css/dist/css/materialize.min.css';
 
 function App() {
   const [userData, setuserData] = useState({
@@ -24,7 +25,7 @@ function App() {
         <Route exact path="/">
           <Splash updateUser={updateUser}/>
         </Route>
-        <Route path="/home">
+        <Route exact path="/home">
           <Home userData={userData}/>
         </Route>
         <Route path="/player/:id">
